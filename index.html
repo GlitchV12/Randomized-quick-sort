@@ -3,50 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quicksort Visualizer</title>
+    <title>Merge Sort Visualizer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Quicksort Visualizer</h1>
-    <div id="container">
-        <div id="visualization"></div>
-        <div id="pseudocode">
-            <pre>
-FUNCTION randomized_partition(arr, low, high):
-    rand_pivot_index ← RANDOM(low, high)
-    SWAP arr[rand_pivot_index] WITH arr[high]
-    RETURN partition(arr, low, high)
-END FUNCTION
-
-FUNCTION partition(arr, low, high):
-    pivot ← arr[high]
-    i ← low - 1
-    FOR j FROM low TO high - 1:
-        IF arr[j] ≤ pivot THEN
-            i ← i + 1
-            SWAP arr[i] WITH arr[j]
-        END IF
-    END FOR
-    SWAP arr[i + 1] WITH arr[high]
-    RETURN i + 1
-END FUNCTION
-
-FUNCTION quick_sort(arr, low, high):
-    IF low < high THEN
-        pi ← randomized_partition(arr, low, high)
-        quick_sort(arr, low, pi - 1)
-        quick_sort(arr, pi + 1, high)
-    END IF
-END FUNCTION
-            </pre>
+    <div class="header">
+        <h1>Merge Sort Visualizer</h1>
+        <div id="controls">
+            <button id="prevBtn">Prev Step</button>
+            <span id="step-counter">Step 0/0</span>
+            <button id="nextBtn">Next Step</button>
+            <button id="resetBtn">Reset</button>
         </div>
     </div>
-    <div id="explanation">
-        <p>Click "Next" to start the visualization.</p>
-    </div>
-    <div id="controls">
-        <button id="nextBtn">Next</button>
-        <button id="resetBtn">Reset</button>
+    <div id="main-container">
+        <div id="pseudocode-container">
+            <pre id="pseudocode"></pre>
+        </div>
+        <div id="visualizer-container">
+            <div id="visualization"></div>
+             <div id="explanation-box">
+                <p><strong>Explanation:</strong></p>
+                <p id="explanation-text">Click "Next Step" to begin the visualization.</p>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
