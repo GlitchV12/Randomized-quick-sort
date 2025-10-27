@@ -1,52 +1,144 @@
-body {
-    font-family: sans-serif;
-    text-align: center;
+:root {
+    --background-color: #1e1e1e;
+    --primary-text: #d4d4d4;
+    --container-bg: #252526;
+    --border-color: #3e3e42;
+    --accent-green: #6a9955;
+    --accent-blue: #569cd6;
+    --highlight-bg: rgba(106, 153, 85, 0.2);
 }
 
-#container {
+body {
+    background-color: var(--background-color);
+    color: var(--primary-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.header {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    color: var(--primary-text);
+}
+
+#controls button {
+    background-color: var(--container-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.2s;
+}
+
+#controls button:hover {
+    background-color: var(--border-color);
+}
+
+#step-counter {
+    margin: 0 10px;
+}
+
+
+#main-container {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+#pseudocode-container {
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    flex-basis: 40%;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+#pseudocode .highlight {
+    background-color: var(--highlight-bg);
+    display: block;
+    border-left: 3px solid var(--accent-green);
+    margin-left: -15px;
+    padding-left: 12px;
+}
+
+#visualizer-container {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
 }
 
 #visualization {
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 400px;
+    position: relative;
+    overflow-x: auto;
+}
+
+.level {
     display: flex;
-    align-items: flex-end;
-    height: 300px;
-    border: 1px solid black;
-    padding: 10px;
-    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-.bar {
-    width: 30px;
-    margin: 0 2px;
-    background-color: lightblue;
-    text-align: center;
-    color: black;
-    font-size: 12px;
-    transition: height 0.3s ease;
+.array-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
 }
 
-#pseudocode {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-    background-color: #f4f4f4;
+.array-label {
+    font-size: 0.9em;
+    color: var(--accent-blue);
+    margin-bottom: 5px;
 }
 
-#explanation {
+.array-box {
+    display: flex;
+    border: 1px solid var(--accent-green);
+}
+
+.array-box.highlight-merge {
+     border: 2px solid lightcoral;
+}
+
+
+.array-cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+}
+
+.array-cell.highlight-compare {
+    background-color: #569cd6; /* Blue for comparison */
+}
+
+
+#explanation-box {
+    background-color: var(--container-bg);
+    border: 1px dotted var(--border-color);
+    padding: 15px;
     margin-top: 20px;
-    font-size: 1.2em;
-}
-
-#controls {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
+    border-radius: 5px;
+    min-height: 50px;
 }
